@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Web App</title>
+</head>
+
+<body style="display: flex; flex-direction: column; align-items: center;">
+    <nav style="display: flex; justify-content: center;">
+        <ul style="display: flex; gap: 20px; font-size: 22px; list-style-type:none;">
+            <li><a href="/">Home</a></li>
+            <li><a href="/users">Users</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+    <h1>Users</h1>
+    <ul id="users" style="font-size: 18px; display: flex; flex-direction: column; gap: 10px;"></ul>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const usersListElement = document.getElementById('users');
+            const users = [
+                { name : "Muhammad", hour : "8" },
+                { name: "Awais", hour: "9" },
+                { name: "Danish", hour: "6" }
+            ];
+
+            users.forEach((user) => {
+                const li = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = `/username/${user.name}/${user.hour}`;
+                link.textContent = user.name;
+                li.appendChild(link);
+                usersListElement.appendChild(li);
+            });
+        });
+    </script>
+</body>
+
+</html>

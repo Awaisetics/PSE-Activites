@@ -14,5 +14,15 @@ def about():
 def contact():
     return render_template('contact.html')
 
+@app.route('/users')
+def users():
+    return render_template('users.html')
+
+@app.route('/username/<name>/<int:number>')
+def learn(name,number):
+    return f"{name} is learning Flask! he wakes up at {number} everyday."
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
